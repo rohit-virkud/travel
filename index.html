@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style type="text/css">
+    	*{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        body{
+            background-color: #fffff;
+
+        }
+        a{
+            text-decoration: none;
+            color: inherit;
+        }
+         h1{
+            font-weight: 800;
+            word-break: break-word;
+        }
+        p{
+             word-break: break-word;
+        } 
+
+        .load-preview
+        {
+        	width: 100%;
+        	height: 100vh;
+        	position: fixed;
+        	top: 0;
+        	left:0;
+        	overflow: hidden;
+        	z-index: 88;
+        	
+        }
+       
+       
+        .load-image
+        {
+           width: 100%;
+           height: 100%;
+           background-size: contain;
+           background-position: center;
+           transform: scale(1);
+           transition: 5s  transform ease-in-out;
+
+
+        }
+         .scale
+        {
+        	transform: scale(1.2);
+        }
+
+        .enter-btn
+        {
+        	position: absolute;
+        	bottom: 10%;
+        	display: flex;
+        	justify-content: center;
+        	align-items: center;
+        	flex-shrink: 0;
+        	width: 100%;
+        	
+        }
+        .btn-name
+        {
+        	width: 30vw;
+        	height: 30vw;
+        	border: 1px solid #fff;
+        	border-radius: 50%;
+        	display: flex;
+        	justify-content: center;
+        	align-items: center;
+        	flex-shrink: 0;
+        }
+        .btn-name p
+        {
+        	color: white;
+        	font-size: min(4vw,2.5vh);
+        }
+
+        /*contacts*/
+        .first-slide,.second-slide,.third-slide
+        {
+        	width: 100vw;
+        	height: 100vh;
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+            background: white;
+        	
+        	
+        }
+        .contacts-slide
+        {
+        	width: 100vw;
+        	height: 85%;
+        	overflow: hidden;
+        	display: flex;
+        	flex-shrink: 0;
+        	justify-content: center;
+        	
+
+        }
+        .contacts-information
+        {
+        	width: 90%;
+        	height: auto;
+        	max-height: 95%;
+        	display: flex;
+        	flex-direction: column;
+        	flex-shrink: 0;
+        	
+        	overflow: hidden scroll;
+            
+        	
+        	align-items: center;
+            margin-top: auto;
+            margin-bottom: auto;
+
+        }
+
+        .profile
+        {
+        	width: 30vw;
+        	height: 30vw;
+        	border-radius: 50%;
+        	background: green;
+        	overflow: hidden;
+        }
+        img
+        {
+        	width: 100%;
+        	height: 100%;
+        }
+         .first-name
+        {
+            margin-top: 4vw;
+
+            
+        }
+        .first-name , .last-name
+        {
+            font-size: 6.5vw;
+          
+            width: 100%;
+            text-align: center;
+        }
+        .tag
+        {
+            font-size: 3vw;
+            letter-spacing: 0.1em;
+             font-weight: 900;
+             margin-top: 2vw;
+            
+            width: 85%;
+        }
+        .social-media
+        {
+        	width: auto;
+            max-width: min(70vw,35vh);
+			height: min(14vw, 7vh);
+			    margin-top: min(4vw, 1.5vh);
+			    display: flex;
+			    flex-shrink: 0;
+			    justify-content: space-evenly;
+			    -webkit-box-align: center;
+			    align-items: center;
+        }
+        .social-media a
+        {
+        	width: 100%;
+            height: 100%;
+        }
+        .social-media img
+        {
+        	object-fit: contain;
+		    width: 100%;
+		    height: 100%;
+
+        }
+
+        .contact-container
+        {
+        	margin-top: min(3.25vw, 1.5vh);
+		    margin-bottom: min(3.25vw, 1.5vh);
+		    font-size: min(6vw, 3vh);
+		    width: 80%;
+		    display: flex;
+		    flex-shrink: 0;
+		    -webkit-box-align: center;
+		    align-items: center;
+        }
+        .contact-container img
+        {
+        	margin-left: min(10vw,5vh);
+            filter:drop-shadow(-6px 8px 15px rgba(202, 128, 115, 0.2)); 
+
+
+        }
+
+        .contact-container p
+        {
+        	color: rgb(0, 0, 0);
+		    margin-left: min(5vw, 2.5vh);
+
+		    font-size: min(4vw, 2vh);
+        }
+        .bottom-img
+        {
+        	width: 100%;
+        	height: 23vw;
+        	position: absolute;
+        	bottom: 0;
+        }
+
+        .save-btn
+        {
+        	
+        	position: absolute;
+            bottom: 2%;
+            z-index: 5;
+            display: flex;
+            flex-shrink: 0;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .save-icon
+        {
+        	
+            width: min(15vw,9vh);
+            height: min(15vw,9vh);
+
+            filter:drop-shadow(0px 5px 15px rgba(202, 128, 115, 0.25)); 
+        }
+        .share-btn
+        {
+        	position: absolute;
+            top: 3%;
+            right: 5%;
+            z-index: 5;
+            display: flex;
+            flex-shrink: 0;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .layerblur-img
+        {
+        	position: absolute;
+        	top: 0%;
+            right: 0%;
+            z-index: -3;
+            width: min(70vw,35vh);
+            height:  min(70vw,35vh);
+
+        }
+        .share-icon
+        {
+        	width: min(10vw,5vh);
+            height: min(10vw,5vh);
+
+            filter:drop-shadow(0px 5px 15px rgba(202, 128, 115, 0.25)); 
+        }
+
+        .next-btn
+        {
+        	position: absolute;
+            bottom: 9%;
+            right: 5%;
+            z-index: 5;
+            
+        	
+        }
+        .next-icon
+        {
+        	width: min(10vw,5vh);
+            height: min(10vw,5vh);
+        	filter:drop-shadow(0px 5px 15px rgba(202, 128, 115, 0.25))
+        }
+
+        /*second page*/
+        .second-slide
+        {
+        	background: url('slide2background.png') no-repeat;
+        	background-size: cover;
+        	background-position: center;
+            z-index: -8;
+           overflow: scroll;
+
+        }
+        .image-up
+        {
+            
+            width: 100%;
+            height: 40vh;
+        }
+        .image-down
+        {
+           
+            width: 100%;
+            height: 40vh;
+            
+        }
+        .quote-content
+        {
+            min-height: 20vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .prev-btn
+        {
+            z-index: 5;
+        }
+        .prev-icon
+        {
+            width: min(10vw,5vh);
+            height: min(10vw,5vh);
+            filter: drop-shadow(0px 5px 15px rgba(202, 128, 115, 0.25));
+        }
+
+        .third-slide
+        {
+            background: url('slide3background.png')no-repeat;
+            background-size: cover;
+            background-position: center;
+            z-index: -12;
+
+        }
+        .review-section
+        {
+           width: 100%;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           margin-bottom: min(4vw,2vh);
+        }
+        .review-section h1
+        {
+            width: 100%;
+            font-size: min(6vw, 3vh);
+            text-align:center;
+            margin-top: min(4vw, 3vh);
+        }
+
+
+    </style>
+</head>
+<body>
+  
+  <div class="load-preview">
+  	<img src="background.png"  class="load-image scale" alt="preview-img "/>
+  	<div class="enter-btn">
+  	<a href="#" onclick="enter()" class="btn-name">
+  		<p>ENTER</p>
+  	</a>
+  </div>
+ </div>
+
+
+<div class="first-slide">
+
+  <div class="contacts-slide">
+  	 
+    <div class="contacts-information">
+
+        <img src="layerblur.png" alt="layerblur" class="layerblur-img" />
+    	<div class="profile">
+    		<img src="profile.png" alt="profile" class="profile-img" />
+    	</div>
+    	<h1 class="first-name">Denis</h1>
+    	<h1 class="last-name">Brown</h1>
+
+    	<div class="social-media" style="margin-bottom: min(3vw,1.5vh);">
+    		<a href="#!"><img src="facebook.png" alt="fb"></a>
+    		<a href="#!"><img src="instagram.png" alt="fb"></a>
+    		<a href="#!"><img src="youtube.png" alt="fb"></a>
+    		<a href="#!"><img src="telegram.png" alt="fb"></a>
+    		<a href="#!"><img src="twitter.png" alt="fb"></a>
+    		<a href="#!"><img src="tiktok.png" alt="fb"></a>
+    		<a href="#!"><img src="linkedin.png" alt="fb"></a>
+    	</div>
+
+    	<a class="contact-container" >
+
+    		
+    		<img src="phone-icon.png" alt="contact" style="width: min(9vw, 4.5vh);height: min(9vw, 4.5vh);" />
+          
+    		<p>+380 98 996 5879</p>
+    	</a>
+
+    	<a class="contact-container">
+    		<img src="home-icon.png" alt="contact"   style="width: min(9vw, 4.5vh);
+    height: min(9vw, 4.5vh);"/>
+    		<p>+380 98 996 5879</p>
+    	</a>
+
+
+<a class="contact-container">
+    		<img src="email-icon.png" alt="contact"   style="width: min(9vw, 4.5vh);height: min(9vw, 4.5vh);"/>
+    		<p>share@artcoolcards.com</p>
+    	</a>
+
+
+<a class="contact-container">
+    		<img src="location-icon.png" alt="contact"   style="width: min(9vw, 4.5vh);
+    height: min(9vw, 4.5vh);"/>
+    		<p>Dimokratias Avenue, Paphos 8066, Cyprus</p>
+    	</a>
+
+
+<a class="contact-container">
+    		<img src="web-icon.png" alt="contact"  style="width: min(9vw, 4.5vh);
+    height: min(9vw, 4.5vh);"/>
+    		<p>www.artcoolcards.com</p>
+    	</a>
+
+
+    	<a href="#!" class="save-btn">
+    		<img src="save-icon.png" alt="save-btn" class="save-icon" />
+    		<p style="margin-top: 2vw;color: #8C8C8C;letter-spacing: 0.05em;font-weight: 700; font-size: min(2.8vw, 1.2vh);">SAVE CONTACTS</p>
+    	</a>
+
+
+    	<div class="next-btn">
+    		<img src="next.png" alt="next" class="next-icon" onclick="goToSecond()" />
+    	</div>
+
+
+    	<a href="#!" class="share-btn">
+    		<img src="share-icon.png" alt="save-btn" class="share-icon" />
+    		<p style="margin-top: 2vw;color: #8C8C8C;letter-spacing: 0.05em;font-weight: 700; font-size: min(2.8vw, 1.2vh);">SHARE</p>
+    	</a>
+
+
+
+
+
+
+    	<img src="bottom.png" alt="bottom" class="bottom-img" />
+    
+
+
+
+
+    </div>
+</div>
+
+</div>
+<div class="second-slide" style="display: flex;flex-direction:column;align-items: center;flex-shrink: 0;">
+    <div class="image-up">
+        <img src="slide02upper.png" alt="image01" />
+    </div>
+    <div class="quote-content">
+
+    <div class="prev-btn">
+    	<img src="prev.png" alt="prev" class="prev-icon" onclick="goToFirst()" />
+    </div>
+
+    <div style="width: 60vw;text-align: center;margin-top: min(10vw,5vh);margin-bottom: min(10vw,5vh);margin-left: min(5vw,2.5vh);margin-right: min(5vw,2.5vh);">
+    <h1 style="width: 100%;text-align: center;font-size:min(5vw,2.5vh)">THERE IS ALWAYS ROOM FOR A STORY THAT CAN TRANPORT PEOPLE TO ANOTHER PLACE</h1>
+    </div> 
+
+    <div class="next-btn" style="position:static">
+        <img src="next.png" alt="next" class="next-icon"  onclick="goToThird()" />
+    </div>
+
+    </div>    
+    <div class="image-down"> 
+        <img src="slide02bottom.png" alt="image02" />
+    </div>
+</div>
+
+<div class="third-slide" style="display: flex;justify-content: center;align-items: center;flex-shrink: 0;min-height: 100vh;height: auto;">
+    <div class="container" style="width: 85%;min-height: 100%;margin-top: auto;margin-bottom: auto;">
+        <div class="prev-btn" style="position:absolute;top: 1.5%;left: 4%;">
+            <img src="prev.png" alt="prev" class="prev-icon" onclick="goToSecond()" />
+        </div>
+        <div class="third-image-container" style="width: 100%;height: 55%;margin-top: min(8vw,4vh);overflow: hidden;">
+            <img src="thirdImg.png"  alt="thirdImage" style="background-size: contain;background-position: center;"/>
+        </div>
+
+        <h1 style="margin-top:min(5vw,3vh);text-align: center;font-size: min(7vw,3.5vh);font-weight: 900;">About Us</h1>
+        <p style="margin-top:min(4vw,2vh);text-align: center;font-size:min(3.5vw,2.5vh);font-weight: 400;color:#616161;margin-bottom:min(4vw,2vh)">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+
+        <div class="review-section">
+            <h1>Our Reviews</h1>
+            <div class="reviews" style="margin-top: min(4vw, 2vh);width:30%;display: flex;justify-content: space-around;align-items: center;">
+                <a href="#!"><img src="Tripadvisor.png" alt="img" style="width: min(9vw, 6vh);
+                    height: min(9vw, 6vh);"/></a>
+                <a href="#!"><img src="booking.png" alt="img" style="width: min(9vw, 6vh);
+height: min(9vw, 6vh);"/></a>
+            </div>
+        </div> 
+        
+        
+        <h1 style="width: 80%; font-size: min(6vw, 3vh);font-weight: 900; margin-top: min(9vw, 5vh);">Subscribe</h1>
+        <form method="post" class="form" style="margin-top: min(4vw, 2vh); display:flex;flex-direction: column;flex-shrink: 0;">
+            <input type="name" name="name" placeholder="Enter Your Name" class="input" style="font-weight: 400; padding: min(2.5vw, 1.5vh) min(3vw, 2vh); font-size: min(3.405vw, 1.5vh); line-height: min(5.085vw, 3vh); border-radius: min(10vw, 5vh);">
+            <input type="email" name="email" placeholder="Enter Your Email" class="input" style="font-weight: 400; margin-top: min(4vw, 2vh); padding: min(2.5vw, 1.5vh) min(3vw, 1.5vh); font-size: min(3.405vw, 1.5vh); line-height: min(5.085vw, 2.5vh); border-radius: min(10vw, 5vh);">
+            <input type="submit" name="submit" class="input primary-btn" value="SUBMIT" style="width: 30%; background-color: rgb(71, 156, 220); color: rgb(255, 255, 255); border: none; box-shadow: rgba(86, 84, 84, 0.2) 0px 4px 20px; padding: min(3vw, 1.5vh) min(4vw, 2vh); font-size: min(3.405vw, 1.5vh); line-height: min(5.085vw, 2.5vh); border-radius: min(10vw, 5vh); margin-top: min(4vw, 2vh); margin-bottom: min(10vw, 5vh);">
+        </form>
+    </div>
+</div>
+
+
+
+
+
+     
+
+  
+
+<script type="text/javascript">
+
+$( document ).ready(function() {
+   $(".load-image").removeClass("scale");
+   
+});
+
+	var test = setInterval(function(){ 
+         $(".load-preview").fadeOut(500, "linear")
+          $(".load-image").addClass("scale");
+         
+        },5000);  
+	
+	function enter()
+	{
+
+         $(".load-preview").fadeOut(800, "linear")
+          $(".load-image").addClass("scale");
+         $(".first-slide").fadeIn(800, "linear")
+         
+	}
+	function goToSecond()
+	{
+		$(".second-slide").fadeIn(800, "linear")
+        $(".first-slide").fadeOut(800, "linear")
+        $(".third-slide").fadeOut(800, "linear")
+
+	}
+
+    function goToFirst()
+    {
+        $(".second-slide").fadeOut(800, "linear")
+        $(".first-slide").fadeIn(800, "linear")
+        $(".third-slide").fadeOut(800, "linear")
+
+    }
+
+    function goToThird()
+    {
+        $(".second-slide").fadeOut(800, "linear")
+        $(".third-slide").fadeIn(800, "linear")
+        $(".first-slide").fadeOut(800, "linear")
+       
+    }
+
+
+</script>
+
+
+</body>
+</html>
