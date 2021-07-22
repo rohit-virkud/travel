@@ -264,7 +264,7 @@
         	position: absolute;
         	top: 0%;
             right: 0%;
-            z-index: -3;
+        
             width: min(70vw,35vh);
             height:  min(70vw,35vh);
 
@@ -381,11 +381,11 @@
     <div class="contacts-information">
 
         <img src="layerblur.png" alt="layerblur" class="layerblur-img" />
-    	<div class="profile">
+    	<div class="profile" style="z-index: 10;">
     		<img src="profile.png" alt="profile" class="profile-img" />
     	</div>
-    	<h1 class="first-name">Denis</h1>
-    	<h1 class="last-name">Brown</h1>
+    	<h1 class="first-name" style="z-index: 10;">Denis</h1>
+    	<h1 class="last-name" style="z-index: 10;">Brown</h1>
 
     	<div class="social-media" style="margin-bottom: min(3vw,1.5vh);">
     		<a href="#!"><img src="facebook.png" alt="fb"></a>
@@ -532,6 +532,9 @@ height: min(9vw, 6vh);"/></a>
 
 $( document ).ready(function() {
    $(".load-image").removeClass("scale");
+   $(".second-slide").fadeOut()
+   
+   $(".third-slide").fadeOut()
    
 });
 
