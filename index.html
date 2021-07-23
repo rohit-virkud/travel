@@ -20,7 +20,7 @@
             font-family: 'Roboto', sans-serif;
         }
         body{
-            background-color: #fffff;
+            background: #ffffff;
 
         }
         a{
@@ -34,6 +34,7 @@
         p{
              word-break: break-word;
         } 
+        textarea, input { outline: none !important; }
 
         .load-preview
         {
@@ -59,10 +60,7 @@
 
 
         }
-         .scale
-        {
-        	transform: scale(1.2);
-        }
+        
 
         .enter-btn
         {
@@ -312,14 +310,35 @@
             
             width: 100%;
             height: 35vh;
+            overflow: hidden;
         }
         .image-down
         {
            
             width: 100%;
             height: 35vh;
+            overflow: hidden;
             
         }
+        
+
+
+       
+       
+
+        .up-img, .down-img,.thirdImage
+        {
+            transform: scale(1);
+           transition: 5s  transform ease-in-out;
+        }
+
+        .scale
+        {
+        	transform: scale(1.2);
+        }
+        
+       
+       
         .quote-content
         {
             min-height: 30vh;
@@ -474,7 +493,7 @@
 </div>
 <div class="second-slide" style="display: flex;flex-direction:column;align-items: center;flex-shrink: 0;">
     <div class="image-up">
-        <img src="slide02upper.png" alt="image01" />
+        <img src="slide02upper.png" alt="image01" class="up-img scale" />
     </div>
     <div class="quote-content">
 
@@ -492,7 +511,7 @@
 
     </div>    
     <div class="image-down"> 
-        <img src="slide02bottom.png" alt="image02" />
+        <img src="slide02bottom.png" alt="image02" class="down-img scale"/>
     </div>
 </div>
 
@@ -502,7 +521,7 @@
             <img src="prev.png" alt="prev" class="prev-icon" onclick="goToSecond()" />
         </div>
         <div class="third-image-container" style="width: 100%;height: 55%;margin-top: min(8vw,4vh);overflow: hidden;">
-            <img src="thirdImg.png"  alt="thirdImage" style="background-size: contain;background-position: center;"/>
+            <img src="thirdImg.png"  alt="thirdImage" style="background-size: contain;background-position: center;" class="thirdImage scale"/>
         </div>
 
         <h1 style="margin-top:min(5vw,3vh);text-align: center;font-size: min(7vw,3.5vh);font-weight: 900;">About Us</h1>
@@ -522,8 +541,8 @@ height: min(9vw, 6vh);"/></a>
         
         <h1 style="width: 80%; font-size: min(6vw, 3vh);font-weight: 900; margin-top: min(9vw, 5vh);">Subscribe</h1>
         <form method="post" class="form" style="margin-top: min(4vw, 2vh); display:flex;flex-direction: column;flex-shrink: 0;">
-            <input type="name" name="name" placeholder="Enter Your Name" class="input" style="font-weight: 400; padding: min(2.5vw, 1.5vh) min(3vw, 2vh); font-size: min(3.405vw, 1.5vh); line-height: min(5.085vw, 3vh); border-radius: min(10vw, 5vh);">
-            <input type="email" name="email" placeholder="Enter Your Email" class="input" style="font-weight: 400; margin-top: min(4vw, 2vh); padding: min(2.5vw, 1.5vh) min(3vw, 1.5vh); font-size: min(3.405vw, 1.5vh); line-height: min(5.085vw, 2.5vh); border-radius: min(10vw, 5vh);">
+            <input type="name" name="name" placeholder="Enter Your Name" class="input" style="font-weight: 400; padding: min(2.5vw, 1.5vh) min(3vw, 2vh); font-size: min(3.405vw, 1.5vh); line-height: min(5.085vw, 3vh); border-radius: min(10vw, 5vh);border: 1px solid black;">
+            <input type="email" name="email" placeholder="Enter Your Email" class="input" style="font-weight: 400; margin-top: min(4vw, 2vh); padding: min(2.5vw, 1.5vh) min(3vw, 1.5vh); font-size: min(3.405vw, 1.5vh); line-height: min(5.085vw, 2.5vh); border-radius: min(10vw, 5vh);border: 1px solid black;">
             <input type="submit" name="submit" class="input primary-btn" value="SUBMIT" style="width: 30%; background-color: rgb(71, 156, 220); color: rgb(255, 255, 255); border: none; box-shadow: rgba(86, 84, 84, 0.2) 0px 4px 20px; padding: min(3vw, 1.5vh) min(4vw, 2vh); font-size: min(3.405vw, 1.5vh); line-height: min(5.085vw, 2.5vh); border-radius: min(10vw, 5vh); margin-top: min(4vw, 2vh); margin-bottom: min(10vw, 5vh);">
         </form>
     </div>
@@ -541,14 +560,16 @@ height: min(9vw, 6vh);"/></a>
 
 $( document ).ready(function() {
    $(".load-image").removeClass("scale");
-   $(".second-slide").fadeOut()
-   
+   $(".first-slide").fadeOut();
+   $(".second-slide").fadeOut();
    $(".third-slide").fadeOut()
+   
+   $(".first-slide").fadeIn();
    
 });
 
 	var test = setInterval(function(){ 
-         $(".load-preview").fadeOut(500, "linear")
+        $(".load-preview").fadeOut(500, "linear")
           $(".load-image").addClass("scale");
          
         },5000);  
@@ -557,8 +578,10 @@ $( document ).ready(function() {
 	{
 
          $(".load-preview").fadeOut(800, "linear")
-          $(".load-image").addClass("scale");
+         $(".load-image").addClass("scale")
          $(".first-slide").fadeIn(800, "linear")
+        
+
          
 	}
 	function goToSecond()
@@ -566,6 +589,8 @@ $( document ).ready(function() {
 		$(".second-slide").fadeIn(800, "linear")
         $(".first-slide").fadeOut(800, "linear")
         $(".third-slide").fadeOut(800, "linear")
+        $(".up-img ").removeClass("scale")
+        $(".down-img").removeClass("scale")
 
 	}
 
@@ -574,6 +599,9 @@ $( document ).ready(function() {
         $(".second-slide").fadeOut(800, "linear")
         $(".first-slide").fadeIn(800, "linear")
         $(".third-slide").fadeOut(800, "linear")
+        $(".up-img").addClass("scale")
+        $(".down-img").addClass("scale")
+        $(".thirdImage").addClass("scale")
 
     }
 
@@ -582,6 +610,10 @@ $( document ).ready(function() {
         $(".second-slide").fadeOut(800, "linear")
         $(".third-slide").fadeIn(800, "linear")
         $(".first-slide").fadeOut(800, "linear")
+        $(".up-img ").addClass("scale")
+        $(".down-img").addClass("scale")
+        $(".thirdImage").removeClass("scale")
+        
        
     }
 
